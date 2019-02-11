@@ -6,36 +6,45 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Page Title</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
   <script src="assets/javascript/jquery-3.3.1.js"></script>
 </head>
 
 <body>
   <h1>Star Wars RPG</h1>
-  <div class="row">
+  <div class="row" id="characterlist">
     <div id="cobi" class="col-1-md">
-      <img id="obi" src="assets/images/obi.jpeg" height="200px" width="200px" alt="Obi-wan Kenobi">
+        <img id="obi" src="assets/images/obi.jpeg" height="200px" width="200px" alt="Obi-wan Kenobi">
+      </div>
+      <div id="cluke" class="col-1-md">
+        <img id="luke" src="assets/images/luke.jpg" height="200px" width="200px" alt="Luke Skywalker">
+      </div>
+      <div id="cvader" class="col-1-md">
+        <img id="vader" src="assets/images/vader.jpg" height="200px" width="200px" alt="Darth Vader">
+      </div>
+      <div id="cr2d2" class="col-1-md">
+        <img id="r2d2" src="assets/images/r2d2.jpg" height="200px" width="200px" alt="R2D2">
+      </div>
     </div>
-    <div id="cluke" class="col-1-md">
-      <img id="luke" src="assets/images/luke.jpg" height="200px" width="200px" alt="Luke Skywalker">
-    </div>
-    <div id="cvader" class="col-1-md">
-      <img id="vader" src="assets/images/vader.jpg" height="200px" width="200px" alt="Darth Vader">
-    </div>
-    <div id="cr2d2" class="col-1-md">
-      <img id="r2d2" src="assets/images/r2d2.jpg" height="200px" width="200px" alt="R2D2">
-    </div>
+    <p>Enemies Available to Attack</p>
+    <p id="enemies"></p>
+    <div id="me">
+    <p>Your Character</p>
+    <p id="character"></p>
+    <p id="phealth"></p>
   </div>
-  <p>Your Character</p>
-  <p id="character"></p>
-  <p>Enemies Available to Attack</p>
-  <p id="enemies"></p>
-  <p>Fight Section</p>
-  <p><button id="attack">Attack</button></p>
-  <p>Defender</p>
-  <p id="defender"></p>
-  <script src="assets/javascript/game.js"></script>
+  <div id="you">
+    <p>Defender</p>
+    <p id="defender"></p>
+    <p id="ehealth"></p>
+  </div>
+    <p>Fight Section</p>
+    <p><button id="attack">Attack</button></p>
+    <p id="pfight"></p>
+    <p id="efight"></p>
+    <script src="assets/javascript/game.js"></script>
 </body>
 
 </html>
