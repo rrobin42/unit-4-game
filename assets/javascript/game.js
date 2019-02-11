@@ -25,99 +25,71 @@ var r2d2 = {
   catk: 9
 }
 
-var player;
+var player = null;
 var enemy = null;
-var fighters = 0;
-var start = false;
-//ONCLICK FUNCTIONS FOR CHOOSING PLAYER TO USE
-$("#cobi").click(function () {
 
-  //SET PLAYER AS FIGHTER AND ADJUST HTML
-  player = obi;
-  $("#character").html($("#cobi").html());
-  $("#cobi").empty();
-
-  //SET ENEMIES AVAILABLE
-  $("#luke").appendTo("#enemies");
-  $("#vader").appendTo("#enemies");
-  $("#r2d2").appendTo("#enemies");
-  $("#characterlist").empty();
-  start = true;
-});
-
-$("#cluke").click(function () {
-
-  //SET PLAYER AS FIGHTER AND ADJUST HTML
-  player = luke;
-  $("#character").html($("#cluke").html());
-  $("#cluke").empty();
-
-  //SET ENEMIES AVAILABLE
-  $("#obi").appendTo("#enemies");
-  $("#vader").appendTo("#enemies");
-  $("#r2d2").appendTo("#enemies");
-  $("#characterlist").empty();
-  start = true;
-
-});
-
-$("#cvader").click(function () {
-
-  //SET PLAYER AS FIGHTER AND ADJUST HTML
-  player = vader;
-  $("#character").html($("#cvader").html());
-  $("#cvader").empty();
-
-  //SET ENEMIES AVAILABLE
-  $("#obi").appendTo("#enemies");
-  $("#luke").appendTo("#enemies");
-  $("#r2d2").appendTo("#enemies");
-  $("#characterlist").empty();
-  start = true;
-});
-
-$("#cr2d2").click(function () {
-
-  //SET PLAYER AS FIGHTER AND ADJUST HTML
-  player = r2d2;
-  $("#character").html($("#cr2d2").html());
-  $("#cr2d2").empty();
-
-  //SET ENEMIES AVAILABLE
-  $("#obi").appendTo("#enemies");
-  $("#luke").appendTo("#enemies");
-  $("#vader").appendTo("#enemies");
-  $("#characterlist").empty();
-  start = true;
-
-});
-
-
-//ONCLICK FUNCTION FOR CHOOSING ENEMY
+//ONCLICK FUNCTION WHEN EACH IMAGE
+//IF PLAYER IS NULL, USER IS SELECTING A PLAYER
+//IF PLAYER IS NOT NULL && ENEMY IS NULL, USER IS SELECTING AN ENEMY
 $("#obi").click(function () {
-  if (enemy === null && start === true) {
-    $("#enemies").remove("#obi");
+  if (player === null) {
+    player = obi;
+    $("#obi").appendTo("#character");
+
+    //SET ENEMIES AVAILABLE
+    $("#luke").appendTo("#enemies");
+    $("#vader").appendTo("#enemies");
+    $("#r2d2").appendTo("#enemies");
+  }
+  else if (enemy === null && player !== null) {
     $("#obi").appendTo("#defender");
     enemy = obi;
   }
 });
+
 $("#luke").click(function () {
-  if (enemy === null && start === true) {
-    $("#enemies").remove("#luke");
+  if (player === null) {
+    player = luke;
+    $("#luke").appendTo("#character");
+
+    //SET ENEMIES AVAILABLE
+    $("#obi").appendTo("#enemies");
+    $("#vader").appendTo("#enemies");
+    $("#r2d2").appendTo("#enemies");
+  }
+  else if (enemy === null && player !== null) {
     $("#luke").appendTo("#defender");
     enemy = luke;
   }
 });
+
 $("#vader").click(function () {
-  if (enemy === null && start === true) {
-    $("#enemies").remove("#vader");
+  if (player === null) {
+    player = vader;
+    $("#vader").appendTo("#character");
+
+    //SET ENEMIES AVAILABLE
+    $("#obi").appendTo("#enemies");
+    $("#luke").appendTo("#enemies");
+    $("#r2d2").appendTo("#enemies");
+  }
+  else if (enemy === null && player !== null) {
     $("#vader").appendTo("#defender");
     enemy = vader;
   }
 });
+
 $("#r2d2").click(function () {
-  if (enemy === null && start === true) {
-    $("#enemies").remove("#r2d2");
+  if (player === null) {
+    player = r2d2;
+    $("#r2d2").appendTo("#character");
+
+    //SET ENEMIES AVAILABLE
+    $("#obi").appendTo("#enemies");
+    $("#luke").appendTo("#enemies");
+    $("#vader").appendTo("#enemies");
+  }
+  else if (enemy === null && player !== null) {
     $("#r2d2").appendTo("#defender");
     enemy = r2d2;
   }
@@ -147,19 +119,45 @@ $("#attack").click(function () {
       enemy = null;
       $("#defender").empty();
       $("#ehealth").empty();
-    }else{
+      $("#enemies").html("<h2>YOU WON!</h2>")
+    } else {
 
-
-
-$("#ehealth").html("Health: " + enemy.health);
-
-    player.atk += player.atk;
-    
-    
+      $("#ehealth").html("Health: " + enemy.health);
+      player.atk += player.atk;
     }
   }
   //IF PLAYER HEALTH GOES BELOW 0
-  if(player.health < 1){
+  if (player.health < 1) {
     $("#character").html("<h3>YOU DIED! RELOAD THE PAGE AND PLAY AGAIN!</h3>");
   }
+});
+
+//ONCLICK FUNCTION FOR RESTART BUTTON
+//RESET PAGE DYNAMICALLY
+$("#restart").click(function () {
+  $("#obi").appendTo("#characterlist");
+  $("#luke").appendTo("#characterlist");
+  $("#vader").appendTo("#characterlist");
+  $("#r2d2").appendTo("#characterlist");
+
+  $("#phealth").empty();
+  $("#ehealth").empty();
+  $("#pfight").empty();
+  $("#efight").empty();
+
+  player = null;
+  enemy = null;
+
+  obi.health = 100;
+  obi.atk = 12;
+  obi.catk = 10;
+  luke.health = 100;
+  luke.atk = 11;
+  luke.catk = 15;
+  vader.health = 100;
+  vader.atk = 10;
+  vader.catk = 20;
+  r2d2.health = 100;
+  r2d2.atk = 8;
+  r2d2.catk = 9;
 });
