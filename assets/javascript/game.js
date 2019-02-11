@@ -28,6 +28,16 @@ var r2d2 = {
 var player = null;
 var enemy = null;
 
+//DISPLAY NAME AND HEALTH ON CHARACTER IMAGES
+$("#obiname").html(obi.name);
+$("#obihealth").html(obi.health);
+$("#lukename").html(luke.name);
+$("#lukehealth").html(luke.health);
+$("#vadername").html(vader.name);
+$("#vaderhealth").html(vader.health);
+$("#r2d2name").html(r2d2.name);
+$("#r2d2health").html(r2d2.health);
+
 //ONCLICK FUNCTION WHEN EACH IMAGE
 //IF PLAYER IS NULL, USER IS SELECTING A PLAYER
 //IF PLAYER IS NOT NULL && ENEMY IS NULL, USER IS SELECTING AN ENEMY
@@ -40,6 +50,7 @@ $("#obi").click(function () {
     $("#luke").appendTo("#enemies");
     $("#vader").appendTo("#enemies");
     $("#r2d2").appendTo("#enemies");
+    $("#characterlist").css({"display":"none"});
   }
   else if (enemy === null && player !== null) {
     $("#obi").appendTo("#defender");
@@ -114,7 +125,6 @@ $("#attack").click(function () {
 
     //IF ENEMY RUNS OUR OF HEALTH 
     if (enemy.health < 1) {
-      console.log("test");
       enemy = null;
 
       //HIDE DEAD DEFENDER IN HIDDEN DIV SO THAT HE CAN BE RECOVERED WITH RESTART BUTTON

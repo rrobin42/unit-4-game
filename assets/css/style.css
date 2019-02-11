@@ -5,12 +5,26 @@ body{
   background-image: url(../images/starwarsbackground.jpg);
   background-size: 100%;
 }
+h1 {
+  float:right;
+}
+
+#enemiesHeader{
+  clear: both;
+}
 #player{
   float:left;
 }
 #enemy{
   margin-left: 15px;
   float: left;
+}
+#obi, #luke, #vader, #r2d2{
+  margin: 5px;
+  background-color: green;
+  text-align: center;
+  display: inline-block;
+  clear: both;
 }
 .hide{
   display: none;
