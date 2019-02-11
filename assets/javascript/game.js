@@ -98,12 +98,10 @@ $("#r2d2").click(function () {
 
 //ONCLICK FUNCTION FOR ATTACK BUTTON
 $("#attack").click(function () {
-  //check if an enemy has been selected
-  if (enemy === null) {
-
-  }
-  //IF ENEMY IS READY
-  else {
+  //check if an enemy and player has been selected
+  if (enemy !== null && player !== null){
+  
+  
     //PLAYER ATTACKS ENEMY AND TAKES HEALTH, VICE VERSA
     //PLAYERS ATTACK INCREASES BY ATTACK POWER
     enemy.health -= player.atk;
@@ -113,23 +111,26 @@ $("#attack").click(function () {
     $("#efight").html(enemy.name + " hit you and took " + enemy.catk + " points off your health!");
 
     $("#phealth").html("Health: " + player.health);
+
     //IF ENEMY RUNS OUR OF HEALTH 
     if (enemy.health < 1) {
       console.log("test");
       enemy = null;
-      $("#defender").empty();
+
+      //HIDE DEAD DEFENDER IN HIDDEN DIV SO THAT HE CAN BE RECOVERED WITH RESTART BUTTON
+      $("#defender").children().appendTo(".hide");
       $("#ehealth").empty();
-      $("#enemies").html("<h2>YOU WON!</h2>")
     } else {
 
       $("#ehealth").html("Health: " + enemy.health);
       player.atk += player.atk;
     }
-  }
+  
   //IF PLAYER HEALTH GOES BELOW 0
   if (player.health < 1) {
     $("#character").html("<h3>YOU DIED! RELOAD THE PAGE AND PLAY AGAIN!</h3>");
   }
+}
 });
 
 //ONCLICK FUNCTION FOR RESTART BUTTON

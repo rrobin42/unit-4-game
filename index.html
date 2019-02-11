@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
   <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
   <script src="assets/javascript/jquery-3.3.1.js"></script>
 </head>
@@ -15,25 +16,30 @@
 <body>
   <h1>Star Wars RPG</h1>
   <div class="row" id="characterlist">
-        <img id="obi" src="assets/images/obi.jpeg" height="200px" width="200px" alt="Obi-wan Kenobi">
-        <img id="luke" src="assets/images/luke.jpg" height="200px" width="200px" alt="Luke Skywalker">
-        <img id="vader" src="assets/images/vader.jpg" height="200px" width="200px" alt="Darth Vader">
-        <img id="r2d2" src="assets/images/r2d2.jpg" height="200px" width="200px" alt="R2D2">
-    </div>
-    <p>Enemies Available to Attack</p>
-    <p id="enemies"></p>
-    <p>Your Character</p>
-    <p id="character"></p>
-    <p id="phealth"></p>
-    <p>Defender</p>
-    <p id="defender"></p>
-    <p id="ehealth"></p>
-    <p>Fight Section</p>
-    <p><button id="attack">Attack</button></p>
-    <p id="pfight"></p>
-    <p id="efight"></p>
-    <button id="restart">Restart</button>
-    <script src="assets/javascript/game.js"></script>
+    <img id="obi" src="assets/images/obi.jpeg" height="125px" width="125px" alt="Obi-wan Kenobi">
+    <img id="luke" src="assets/images/luke.jpg" height="125px" width="125px" alt="Luke Skywalker">
+    <img id="vader" src="assets/images/vader.jpg" height="125px" width="125px" alt="Darth Vader">
+    <img id="r2d2" src="assets/images/r2d2.jpg" height="125px" width="125px" alt="R2D2">
+  </div>
+  <p>Enemies Available to Attack</p>
+  <p id="enemies"></p>
+  <div id="player">
+  <p>Your Character</p>
+  <p id="character"></p>
+  <p id="phealth"></p>
+</div>
+<div id="enemy">
+  <p>Defender</p>
+  <p id="defender"></p>
+  <p id="ehealth"></p>
+</div>
+  <p class="clear">Fight Section</p>
+  <p><button id="attack">Attack</button></p>
+  <p id="pfight"></p>
+  <p id="efight"></p>
+  <button id="restart">Restart</button>
+  <p class="hide"></p>
+  <script src="assets/javascript/game.js"></script>
 </body>
 
 </html>
